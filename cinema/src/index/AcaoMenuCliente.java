@@ -26,33 +26,24 @@ public class AcaoMenuCliente {
 	{
 		Keyboard.clrscr();
 		System.out.println("                    CLIENTE                  \n ");
-		// Não faz sentido pedi login e senha para o cliente se não tem como se-registrar
-		//String login = Keyboard.readString("Login: ");
-		//String senha = Keyboard.readString("Senha: ");
-		UsuarioDao gdao = new UsuarioDao();
-		Usuario gerente = gdao.selectUsuarioLogin("cliente", "cliente"); // Usuario pre-definido no banco
-		if(gerente.getId() > 0) {			
-			int opcao;
-			do{
-				Keyboard.clrscr();
-				System.out.print("Bem vindo! ");
-				gerente.imprimir();
-				opcao = Keyboard.menu("Comprar Ingresso/Listar Sessões/Sair");
-				switch(opcao){
-	            case 1: 
-	            	ComprarIngresso();
-	            	Keyboard.waitEnter();
-	            	break;
-	            case 2:	            	
-	            	ListarSessoes();
-	            	Keyboard.waitEnter();
-	            	break;
-				}				
-			}while(opcao < 2);
-		}
-		else {
-			System.out.println("Login ou senha invalido!");
-		}		
+		
+		int opcao;
+		do{
+			Keyboard.clrscr();
+			System.out.print("Bem vindo! ");
+			opcao = Keyboard.menu("Comprar Ingresso/Listar Sessões/Sair");
+			switch(opcao){
+            case 1: 
+            	ComprarIngresso();
+            	Keyboard.waitEnter();
+            	break;
+            case 2:	            	
+            	ListarSessoes();
+            	Keyboard.waitEnter();
+            	break;
+			}				
+		}while(opcao < 2);
+				
 	}
 	
 	
